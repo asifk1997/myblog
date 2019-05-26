@@ -1,0 +1,15 @@
+{% extends 'blog/base.html' %}
+
+{% block body %}
+
+    <div class="bloposts-container container-fluid">
+        <h4>{{ user.username }}'s blog</h4>
+        <h1> {{ blogpost.title }} </h1>
+
+        <p>
+            {{ blogpost.content }}
+        </p>
+
+    </div>
+
+{% endblock %}

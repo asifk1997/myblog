@@ -1,0 +1,44 @@
+{% extends 'blog/base.html' %}
+
+{% block body %}
+<div class="bloposts-container container-fluid">
+
+    <!-- Albums -->
+    <div class="row">
+        <div class="col-sm-12">
+            <h3>{{ user.username }}'s Blogposts</h3>
+        </div>
+        {% if blogposts %}
+            {% for blogpost in blogposts %}
+                <div class="col-sm-4 col-lg-2">
+                    <div class="thumbnail">
+
+                        <div class="caption">
+                            <h2>{{ blogpost.title }}</h2>
+
+
+                            <!-- View Details -->
+                            <a href="{% url 'blog:detail'  blogpost.id %}" class="btn btn-primary btn-sm" role="button">View Details</a>
+
+
+                        </div>
+                    </div>
+                </div>
+                {% cycle '' '' '' '' '' '<div class="clearfix visible-lg"></div>' %}
+            {% endfor %}
+        {% else %}
+            <div class="col-sm-12">
+                <br>
+
+                    <button type="button" class="btn btn-success">
+                        <span class="glyphicon glyphicon-plus"></span>&nbsp; Add a Blogpost
+                    </button>
+                </a>
+            </div>
+        {% endif %}
+    </div>
+
+
+</div>
+
+{% endblock %}
